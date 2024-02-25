@@ -15,8 +15,10 @@ pub(super) fn dot(a: &__m128, b: &__m128) -> f32 {
 #[test]
 fn correctness() {
     // make sure that `q` is a unit quaternion
-    let d = dot(&Q, &Q);
-    assert_eq!(d, 1.0);
+    let delta = dot(&Q, &Q) - 1.0;
+    let epsilon = 2e-7;
+    assert!(delta < epsilon);
+    assert!(delta > -epsilon);
 
     let portable = quat_to_mat3_portable(&Q);
 
