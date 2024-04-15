@@ -1,5 +1,5 @@
 [package]
-name = "sse_simd_bench"
+name = "sse-simd-bench"
 version = "0.1.0"
 edition = "2021"
 
